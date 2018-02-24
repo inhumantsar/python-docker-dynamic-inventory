@@ -50,6 +50,6 @@ setup(
     test_suite='tests',
     tests_require=dev_requirements + requirements,
     url='https://github.com/inhumantsar/python-docker-dynamic-inventory',
-    version='0.1.0',
+    version='0.1.1',
     zip_safe=False,
 )
