@@ -5,7 +5,12 @@
 import click
 import json
 import requests
-import docker_dynamic_inventory.docker_dynamic_inventory as ddi
+import sys
+
+if sys.version_info.major == 3:
+    import docker_dynamic_inventory.docker_dynamic_inventory as ddi
+else:
+    import docker_dynamic_inventory as ddi
 
 
 @click.command()
