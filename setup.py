@@ -4,6 +4,7 @@
 """The setup script."""
 
 from setuptools import setup, find_packages
+import os
 
 with open('README.rst') as readme_file:
     readme = readme_file.read()
@@ -14,9 +15,8 @@ with open('HISTORY.rst') as history_file:
 with open('requirements.txt') as reqs_file:
     requirements = reqs_file.readlines()
 
-setup_requirements = ['pytest-runner', ]
-
-test_requirements = ['pytest', ]
+with open('requirements_dev.txt') as reqs_file:
+    dev_requirements = reqs_file.readlines()
 
 setup(
     author="Shaun Martin",
@@ -46,9 +46,9 @@ setup(
     keywords='docker-dynamic-inventory',
     name='docker-dynamic-inventory',
     packages=find_packages(include=['docker_dynamic_inventory']),
-    setup_requires=setup_requirements,
+    setup_requires=requirements,
     test_suite='tests',
-    tests_require=test_requirements,
+    tests_require=dev_requirements + requirements,
     url='https://github.com/inhumantsar/python-docker-dynamic-inventory',
     version='0.1.0',
     zip_safe=False,

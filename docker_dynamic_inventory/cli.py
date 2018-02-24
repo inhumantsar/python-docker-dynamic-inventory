@@ -4,6 +4,7 @@
 
 import click
 import json
+import requests
 import docker_dynamic_inventory.docker_dynamic_inventory as ddi
 
 
@@ -19,10 +20,13 @@ def main(host, metadata, pretty, docker_tls, docker_host):
     docker_opts = {'base_url': docker_host, 'tls': docker_tls}
 
     # get container data
-    if host:
-        containers = ddi.containers_by_host(host, metadata, docker_opts)
-    else:
-        containers = ddi.containers(metadata, docker_opts)
+    try:
+        if host:
+            containers = ddi.containers_by_host(host, metadata, docker_opts)
+        else:
+            containers = ddi.containers(metadata, docker_opts)
+    except requests.exceptions.ConnectionError as e:
+        raise click.BadParameter('Unable to connect to the Docker daemon. Check status, or use --docker_host.')
 
     # output
     data = ddi.format_containers(containers, False)
