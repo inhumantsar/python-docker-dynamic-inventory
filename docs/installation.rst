@@ -12,7 +12,7 @@ To install Docker Dynamic Inventory, run this command in your terminal:
 
 .. code-block:: console
 
-    $ pip install docker_dynamic_inventory
+    $ pip install docker-dynamic-inventory
 
 This is the preferred method to install Docker Dynamic Inventory, as it will always install the most recent stable release.
 
@@ -32,13 +32,13 @@ You can either clone the public repository:
 
 .. code-block:: console
 
-    $ git clone git://github.com/inhumantsar/docker_dynamic_inventory
+    $ git clone git://github.com/inhumantsar/python-docker-dynamic-inventory
 
 Or download the `tarball`_:
 
 .. code-block:: console
 
-    $ curl  -OL https://github.com/inhumantsar/docker_dynamic_inventory/tarball/master
+    $ curl  -OL https://github.com/inhumantsar/python-docker-dynamic-inventory/tarball/master
 
 Once you have a copy of the source, you can install it with:
 
@@ -47,5 +47,5 @@ Once you have a copy of the source, you can install it with:
     $ python setup.py install
 
 
-.. _Github repo: https://github.com/inhumantsar/docker_dynamic_inventory
-.. _tarball: https://github.com/inhumantsar/docker_dynamic_inventory/tarball/master
+.. _Github repo: https://github.com/inhumantsar/python-docker-dynamic-inventory
+.. _tarball: https://github.com/inhumantsar/python-docker-dynamic-inventory/tarball/master
