@@ -22,10 +22,11 @@ def format_containers(containers, json_out):
     Returns:
         Dictionary of container information formatted to Ansible specs.
     """
-    data = {'all': {'hosts': [], '_meta': {'hostvars': {}}}}
+    data = {'all': {'vars': {'ansible_connection': 'docker'}, 'hosts': [], '_meta': {'hostvars': {}}}}
     for host, metadata in containers:
+        # docs use dict keys set to none, but maybe all is special?
+        # data['all']['hosts'][host] = None
         data['all']['hosts'].append(host)
-        data['all']['_meta']['hostvars'][host] = {'ansible_connection': 'docker'}
         if metadata:
             data['all']['_meta']['hostvars'][host]['docker_metadata'] = metadata
 
