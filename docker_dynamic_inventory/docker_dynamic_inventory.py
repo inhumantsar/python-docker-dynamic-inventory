@@ -28,7 +28,7 @@ def format_containers(containers, json_out):
         # data['all']['hosts'][host] = None
         data['all']['hosts'].append(host)
         if metadata:
-            data['all']['_meta']['hostvars'][host]['docker_metadata'] = metadata
+            data['all']['_meta']['hostvars'][host] = {'docker_metadata': metadata}
 
     return json.dumps(data) if json_out else data
 
